@@ -23,12 +23,10 @@ curl -X 'POST' \
   "name": "'$categoryName2'" 
 }'
 
-echo 
+echo
 
 # create an article 
-
-#! bin/bash 
-
+echo
 echo "Input article title: "
 read title
 echo "Input artitcle body: "
@@ -57,3 +55,39 @@ curl -X 'POST' \
 echo 
 
 # comment on article 
+
+# get last id 
+id=$(curl -s -X 'GET' \
+ 'https://ams.saintrivers.tech/api/v1/articles/' \
+  -H 'accept: */*' | jq '.[-1].id'| tr -d '"' )
+echo
+echo "Comment will put into this id: $id "
+echo "Write comment1: "
+read cmt1
+    curl -X 'POST' \
+  'https://ams.saintrivers.tech/api/v1/articles/'$id'/comments' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "caption": "'$cmt1'",
+  "commentedOn": "2022-08-06T04:51:53.377Z",
+  "commenter": "Kimhab"
+}'
+
+echo
+echo
+
+echo "Write comment2: "
+read cmt1
+  
+curl -X 'POST' \
+  'https://ams.saintrivers.tech/api/v1/articles/'$id'/comments' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "caption": "'$cmt2'",
+  "commentedOn": "2022-08-06T04:51:53.377Z",
+  "commenter": "Kimhab"
+  }'
+  
+echo
