@@ -70,7 +70,7 @@ read cmt1
   -H 'Content-Type: application/json' \
   -d '{
   "caption": "'$cmt1'",
-  "commentedOn": "2022-08-06T04:51:53.377Z",
+  "commentedOn": "'$now'",
   "commenter": "Kimhab"
 }'
 
@@ -86,7 +86,7 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
   "caption": "'$cmt2'",
-  "commentedOn": "2022-08-06T04:51:53.377Z",
+  "commentedOn": "'$now'",
   "commenter": "Kimhab"
   }'
   
