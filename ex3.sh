@@ -78,7 +78,7 @@ echo
 echo
 
 echo "Write comment2: "
-read cmt1
+read cmt2
   
 curl -X 'POST' \
   'https://ams.saintrivers.tech/api/v1/articles/'$id'/comments' \
