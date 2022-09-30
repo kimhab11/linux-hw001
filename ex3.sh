@@ -1,4 +1,4 @@
-#! bin/bash 
+#!/bin/sh
 
 # create two categories
 echo "Input category1 name: " 
